@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './App.css';
 import Searchbar from '../Searchbar/Searchbar'
 import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
 const tracks = [{
   song: 'Complicated',
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <Searchbar></Searchbar>
       <SearchResults results={tracks} />
+      <Playlist playlist={tracks} />
     </div>
   );
 }
