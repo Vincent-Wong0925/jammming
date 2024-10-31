@@ -1,0 +1,13 @@
+.SearchResults {
+    width: 100%;
+    margin: 0 2rem;
+    background-color: rgba(25, 25, 112, 0.5);
+    color: white;
+    text-align: left;
+    padding: .5rem;
+    overflow: auto;
+}
+
+.SearchResults h2 {
+    margin: .5rem;
+}

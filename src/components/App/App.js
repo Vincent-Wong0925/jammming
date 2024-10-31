@@ -25,9 +25,16 @@ const tracks = [{
 function App() {
   return (
     <div className="App">
-      <Searchbar />
-      <SearchResults results={tracks} />
-      <Playlist playlist={tracks} />
+      <header>
+        <h1>Ja<span>mmm</span>ing</h1>
+      </header>
+      <main>
+        <Searchbar />
+        <div className='container'>
+          <SearchResults results={tracks} />
+          <Playlist playlist={tracks} />
+        </div>
+      </main>
     </div>
   );
 }

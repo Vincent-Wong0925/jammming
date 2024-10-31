@@ -2,7 +2,7 @@
    display: flex;
    flex-direction: column; 
    align-items: center;
-   margin: 1rem auto;
+   margin-bottom: 1rem;
 }
 
 .Searchbar input {
@@ -11,6 +11,7 @@
     margin: 1rem auto;
     border-radius: 1.5rem;
     font-size: 1.5rem;
+    border: none;
 }
 
 .Searchbar button {
