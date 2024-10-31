@@ -1,0 +1,25 @@
+.Searchbar form {
+   display: flex;
+   flex-direction: column; 
+   align-items: center;
+   margin: 1rem auto;
+}
+
+.Searchbar input {
+    width: 30rem;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.Searchbar button {
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+    margin: .5rem auto;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+}

@@ -25,7 +25,7 @@ const tracks = [{
 function App() {
   return (
     <div className="App">
-      <Searchbar></Searchbar>
+      <Searchbar />
       <SearchResults results={tracks} />
       <Playlist playlist={tracks} />
     </div>
