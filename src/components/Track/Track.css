@@ -1,0 +1,22 @@
+.Track {
+    border-bottom: 1px white solid;
+    text-align: left;
+    padding-left: 1rem;
+    background-color: midnightblue;
+    opacity: 0.8;
+}
+
+.Track-info {
+    display: inline-block;
+    color: white;
+}
+
+.Track button {
+    float: right;
+    margin: 1rem;
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
