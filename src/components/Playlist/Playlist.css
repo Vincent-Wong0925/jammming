@@ -11,6 +11,15 @@
     margin: .5rem 0;
     width: 100%;
     box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+    color: white;
+}
+
+.Playlist input:focus {
+    background-color: white;
+    color: black;
 }
 
 .Playlist button[type=submit] {
@@ -21,4 +30,13 @@
     border: none;
     background-color: blueviolet;
     color: white;
+    cursor: pointer;
+}
+
+.Playlist button[type=submit]:hover {
+    background-color:darkmagenta;
+}
+
+.Playlist button[type=submit]:active {
+    color: midnightblue;
 }
