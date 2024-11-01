@@ -24,3 +24,12 @@
     color: white;
     border: none;
 }
+
+.Searchbar button:hover {
+    background-color:dimgray;
+}
+
+.Searchbar button:active {
+    background-color: black;
+    color:darkgrey;
+}
