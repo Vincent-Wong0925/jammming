@@ -20,9 +20,18 @@
 .Track button {
     float: right;
     margin: 1rem;
+    padding: 0;
     color: white;
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
+    border-radius: 50%;
+}
+
+.Track button:hover {
+    background-color: white;
+    color: black;
 }
