@@ -1,14 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './App.css';
 import Searchbar from '../Searchbar/Searchbar'
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 
-const tracks = [{
-  song: 'Complicated',
-  artist: 'Avril Lavigne',
-  album: 'Breakaway'
+const mockTracks = [{
+    song: 'Complicated',
+    artist: 'Avril Lavigne',
+    album: 'Breakaway'
   },
   {
     song: 'Sk8ter Boi',
@@ -23,6 +24,10 @@ const tracks = [{
 ];
 
 function App() {
+  const [results, setResults] = useState(mockTracks);
+  const [playlist, setPlaylist] = useState([]);
+  const [playlistName, setPlaylistName] = useState('New Playlist');
+
   return (
     <div className="App">
       <header>
@@ -31,8 +36,8 @@ function App() {
       <main>
         <Searchbar />
         <div className='container'>
-          <SearchResults results={tracks} />
-          <Playlist playlist={tracks} />
+          <SearchResults results={results} />
+          <Playlist playlist={playlist} playlistName={playlistName} />
         </div>
       </main>
     </div>
