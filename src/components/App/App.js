@@ -32,6 +32,10 @@ function App() {
     setPlaylistName(newName);
   }
 
+  const addTrack = (track) => {
+    setPlaylist((prev) => [...prev, track]);
+  }
+
   return (
     <div className="App">
       <header>
@@ -40,7 +44,9 @@ function App() {
       <main>
         <Searchbar />
         <div className='container'>
-          <SearchResults results={results} />
+          <SearchResults 
+            results={results} 
+            addTrack={addTrack}/>
           <Playlist 
             playlist={playlist}
             playlistName={playlistName}
