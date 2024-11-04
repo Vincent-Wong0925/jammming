@@ -5,6 +5,7 @@ import './App.css';
 import Searchbar from '../Searchbar/Searchbar'
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 const mockTracks = [{
     song: 'I am blue',
@@ -46,13 +47,17 @@ function App() {
     setPlaylist((prev) => prev.filter((track) => track.id !== idToRemove));
   },[]);
 
+  const search = (term) => {
+    Spotify.search(term);
+  }
+
   return (
     <div className="App">
       <header>
         <h1>Ja<span>mmm</span>ing</h1>
       </header>
       <main>
-        <Searchbar />
+        <Searchbar search={search}/>
         <div className='container'>
           <SearchResults 
             results={results} 
