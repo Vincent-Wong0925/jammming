@@ -1,8 +1,5 @@
-import React from "react";
-import { useState, useEffect } from 'react';
-
 const clientId = 'c324c328b00d405e9d265928836addc9';
-const redirectUri = 'http://localhost:3000';
+const redirectUri = 'http://localhost:3000/';
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 const responseType = 'token';
 
@@ -11,10 +8,14 @@ let accessToken = '';
 const Spotify = {
     getAccessToken() {
         if (accessToken === '') {
-            window.location = `${authEndpoint}?client_id=${clientId}&response_type=${responseType}&redirect_uri=${redirectUri}`;
+            const accessUrl = `${authEndpoint}?client_id=${clientId}&response_type=${responseType}&redirect_uri=${redirectUri}`;
+            window.location.href = accessUrl;
             const hash = window.location.hash;
+            console.log(accessUrl);
+            console.log(window.location.href);
             accessToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
-            expiresIn = hash.substring(1).split('&').find(elem => elem.startsWith('expires_in')).split('=')[1];
+            const expiresIn = hash.substring(1).split('&').find(elem => elem.startsWith('expires_in')).split('=')[1];
+            window.setTimeout(() => accessToken = '', expiresIn * 1000);
             
         }
 
@@ -25,7 +26,7 @@ const Spotify = {
 
     search(term) {
         const token = Spotify.getAccessToken();
-
+        /*
         return fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
             header: {
                 Authorization: `Bearer ${token}`
@@ -33,6 +34,7 @@ const Spotify = {
         })
         .then(response => response.json())
         .then(jsonResponse => console.log(jsonResponse));
+        */
     }
 }
 
