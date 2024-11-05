@@ -5,7 +5,7 @@
     color: white;
     text-align: left;
     padding: 1rem;
-    overflow: auto;
+    
     box-sizing: border-box;
 }
 
@@ -16,5 +16,6 @@
 @media only screen and (max-width: 900px) {
     .SearchResults {
       margin: 1rem 0;
+      max-height: 40%;
     }
   }

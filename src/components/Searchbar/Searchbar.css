@@ -6,12 +6,14 @@
 }
 
 .Searchbar input {
-    width: 30rem;
+    width: 90%;
+    max-width: 30rem;
     padding: .5rem 1rem;
-    margin: 1rem auto;
+    margin: 1rem;
     border-radius: 1.5rem;
     font-size: 1.5rem;
     border: none;
+    box-sizing: border-box;
 }
 
 .Searchbar button {

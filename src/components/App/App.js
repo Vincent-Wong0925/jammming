@@ -24,6 +24,91 @@ const mockTracks = [{
     artist: 'IDK',
     album: 'IDC',
     id: 2
+  },{
+    song: 'I am blue',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 3
+  },
+  {
+    song: 'Never gonna give you up',
+    artist: 'Rick Asley',
+    album: 'IDK',
+    id: 4
+  },
+  {
+    song: 'Stupid ticktok song',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 5
+  },{
+    song: 'I am blue',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 6
+  },
+  {
+    song: 'Never gonna give you up',
+    artist: 'Rick Asley',
+    album: 'IDK',
+    id: 7
+  },
+  {
+    song: 'Stupid ticktok song',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 8
+  },{
+    song: 'I am blue',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 9
+  },
+  {
+    song: 'Never gonna give you up',
+    artist: 'Rick Asley',
+    album: 'IDK',
+    id: 10
+  },
+  {
+    song: 'Stupid ticktok song',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 11
+  },{
+    song: 'I am blue',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 12
+  },
+  {
+    song: 'Never gonna give you up',
+    artist: 'Rick Asley',
+    album: 'IDK',
+    id: 13
+  },
+  {
+    song: 'Stupid ticktok song',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 14
+  },{
+    song: 'I am blue',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 15
+  },
+  {
+    song: 'Never gonna give you up',
+    artist: 'Rick Asley',
+    album: 'IDK',
+    id: 16
+  },
+  {
+    song: 'Stupid ticktok song',
+    artist: 'IDK',
+    album: 'IDC',
+    id: 17
   }
 ];
 
