@@ -39,3 +39,9 @@ header span {
   height: 50rem;
   margin: auto 4rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+}

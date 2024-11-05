@@ -18,7 +18,10 @@ function Playlist(props) {
     return (
         <div className='Playlist'>
             <form>
-                <input type='text' onChange={changeName} placeholder='New Playlist' />
+                <input 
+                    type='text' 
+                    onChange={changeName} 
+                    placeholder='New Playlist' />
                 <Tracklist 
                     tracks={props.playlist}
                     removeTrack={removeTrack}

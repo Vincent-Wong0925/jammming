@@ -4,6 +4,7 @@
     background-color: rgba(25, 25, 112, 0.5);
     padding: 1rem;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 .Playlist input {
@@ -42,3 +43,9 @@
 .Playlist button[type=submit]:active {
     color: midnightblue;
 }
+
+@media only screen and (max-width: 900px) {
+    .Playlist {
+      margin: 1rem 0;
+    }
+  }
