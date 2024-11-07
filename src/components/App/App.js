@@ -136,6 +136,13 @@ function App() {
     Spotify.search(term).then(setResults);
   }
 
+  const handleSave = () => {
+    const trackUris = playlist.map(track => track.uri);
+    Spotify.savePlaylist(playlistName, trackUris);
+    setPlaylistName('New Playlist');
+    setPlaylist([]);
+  }
+
   return (
     <div className="App">
       <header>
@@ -152,7 +159,8 @@ function App() {
             playlist={playlist}
             playlistName={playlistName}
             onNameChange={handleNameChange}
-            removeTrack={removeTrack} />
+            removeTrack={removeTrack}
+            onSave={handleSave} />
         </div>
       </main>
     </div>

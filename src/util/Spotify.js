@@ -8,22 +8,18 @@ let accessToken = '';
 const Spotify = {
     getAccessToken() {
         if (accessToken !== '') {
-            console.log(0);
             return accessToken;
         }
 
         const hash = window.location.hash;
-        console.log(hash);
 
         if (hash) {
-            console.log(1);
             accessToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
             const expiresIn = hash.substring(1).split('&').find(elem => elem.startsWith('expires_in')).split('=')[1];
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
             return accessToken;
         } else {
-            console.log(2);
-            const accessUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}`;
+            const accessUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=playlist-modify-public`;
             window.location.href = accessUrl;
         }
     },
@@ -59,9 +55,39 @@ const Spotify = {
                 }));
             }
         });
+    },
+
+    savePlaylist(name, trackUris) {
+        if (!name || !trackUris) {
+            return;
+        }
+
+        const token = Spotify.getAccessToken();
+        const headers = {
+            Authorization: `Bearer ${token}`
+        };
+        let userId;
+
+        return fetch('https://api.spotify.com/v1/me', {headers: headers})
+            .then(response => response.json())
+            .then(jsonResponse => {
+                userId = jsonResponse.id;
+                return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+                    headers: headers,
+                    method: 'POST',
+                    body: JSON.stringify({name: name})
+                })
+                .then(response => response.json())
+                .then(jsonResponse => {
+                    const playlistId = jsonResponse.id;
+                    return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+                        headers: headers,
+                        method: 'POST',
+                        body: JSON.stringify({uris: trackUris})
+                    });
+                });
+            });
     }
 }
 
 export default Spotify;
-
-//http://localhost:3000/#access_token=BQACi_huzRE17JL8lwwb403htOddMhvBoO-3xmbFTZIhG6TVWacqpW8VnH0PWTVBuEKSUHAk3IOyaHdWfTrwx9qjeD0UXWrjIQiV4RywF_un56mAcKRiTxOVd00MhBqmOtybKjB4bSizwOhV_Qy3Uv1tTwfWs-CPuM3JyDnQZ9eM6UwbhwW_UcXrLLTDzLym2OWW9S8oc4I&token_type=Bearer&expires_in=3600

@@ -7,27 +7,23 @@ function Playlist(props) {
         props.onNameChange(event.target.value);
     }
 
-    const addTrack = (track) => {
-        props.addTrack(track);
-    }
-
     const removeTrack = (idToRemove) => {
         props.removeTrack(idToRemove);
     }
 
     return (
         <div className='Playlist'>
-            <form>
-                <input 
-                    type='text' 
-                    onChange={changeName} 
-                    placeholder='New Playlist' />
-                <Tracklist 
-                    tracks={props.playlist}
-                    removeTrack={removeTrack}
-                    isPlaylist={true} />
-                <button type='submit'>Save to Spotify</button>
-            </form>
+            <input 
+                type='text' 
+                onChange={changeName} 
+                placeholder='New Playlist' />
+            <Tracklist 
+                tracks={props.playlist}
+                removeTrack={removeTrack}
+                isPlaylist={true} />
+            <button 
+                className='save-playlist'
+                onClick={props.onSave} >Save to Spotify</button>
         </div>
     );
 }
