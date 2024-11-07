@@ -10,6 +10,7 @@ function Searchbar(props) {
     }
 
     const search = (event) => {
+        event.preventDefault();
         props.search(term);
     }
 

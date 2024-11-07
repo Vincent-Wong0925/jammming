@@ -113,7 +113,7 @@ const mockTracks = [{
 ];
 
 function App() {
-  const [results, setResults] = useState(mockTracks);
+  const [results, setResults] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('New Playlist');
 
@@ -133,7 +133,7 @@ function App() {
   },[]);
 
   const search = (term) => {
-    Spotify.search(term);
+    Spotify.search(term).then(setResults);
   }
 
   return (
@@ -142,6 +142,7 @@ function App() {
         <h1>Ja<span>mmm</span>ing</h1>
       </header>
       <main>
+        <button onClick={Spotify.logout}>Log out</button>
         <Searchbar search={search}/>
         <div className='container'>
           <SearchResults 

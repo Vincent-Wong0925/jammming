@@ -7,34 +7,58 @@ let accessToken = '';
 
 const Spotify = {
     getAccessToken() {
-        if (accessToken === '') {
-            const accessUrl = `${authEndpoint}?client_id=${clientId}&response_type=${responseType}&redirect_uri=${redirectUri}`;
-            window.location.href = accessUrl;
-            const hash = window.location.hash;
-            console.log(accessUrl);
-            console.log(window.location.href);
+        if (accessToken !== '') {
+            console.log(0);
+            return accessToken;
+        }
+
+        const hash = window.location.hash;
+        console.log(hash);
+
+        if (hash) {
+            console.log(1);
             accessToken = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')).split('=')[1];
             const expiresIn = hash.substring(1).split('&').find(elem => elem.startsWith('expires_in')).split('=')[1];
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
-            
+            return accessToken;
+        } else {
+            console.log(2);
+            const accessUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}`;
+            window.location.href = accessUrl;
         }
+    },
 
+    logout() {
+        accessToken = '';
+        window.location.href = redirectUri;
+        console.log('log out');
         console.log(accessToken);
-
-        return accessToken;
     },
 
     search(term) {
         const token = Spotify.getAccessToken();
-        /*
-        return fetch(`https://api.spotify.com/v1/search?q=${term}&type=track`, {
-            header: {
+        return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+            headers: {
                 Authorization: `Bearer ${token}`
             }
         })
         .then(response => response.json())
-        .then(jsonResponse => console.log(jsonResponse));
-        */
+        .then(jsonResponse => {
+            console.log(jsonResponse);
+            if (!jsonResponse.tracks) {
+                return [];
+            } else {
+                return (jsonResponse.tracks.items.map((track) => {
+                    return {
+                        song: track.name,
+                        artist: track.artists[0].name,
+                        album: track.album.name,
+                        uri: track.uri,
+                        id: track.id
+                    };
+                }));
+            }
+        });
     }
 }
 
